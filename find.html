@@ -1,10 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <title>Hide a Geocache</title>
 
+    <style type="text/css">
+
+
+      #map {
+        height: 400px;
+
+        width: 100%;
+      }
+
+    </style>
+    <script>
+      // Initialize and add the map
+      function initMap() {
+        // The location of BYUI
+        const byui = { lat: 43.814, lng: -111.784 };
+        // The map, centered at BYUI
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 4,
+          center: byui,
+        });
+        // The marker, positioned at a certain college
+        const marker = new google.maps.Marker({
+          position: byui,
+          map: map,
+        });
+      }
+    </script>
+</head>
+<body style: background-color="black;">
+<h3>Create a Geocache</h3>
+<!--The div element for the map -->
+<div id="map"></div>
+
+<h3>Type in the Latitude and Longitude of the geocache you want to create!</h3>
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAObURHO87PdqaqxV4mDqGPL-EdwLAfYfA&callback=initMap&libraries=&v=weekly"
+        async
+></script>
+<form>
+    <input type="text" id="search" name="lat"><br><br>
+    <label for="search">Search for a geocache:</label>
+    
+
+    <input type="submit" value="Submit">
+</form>
 </body>
 </html>
